@@ -1,4 +1,5 @@
 type ResultUnit = 'milliseconds' | 'seconds';
+
 interface IPerformanceOptions {
   resultUnit: ResultUnit;
   resultColor: string;
