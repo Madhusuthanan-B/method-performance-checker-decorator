@@ -6,6 +6,13 @@ interface IPerformanceOptions {
   enableTrace: boolean
 }
 
+/**
+ * @param options Supplies configuration metadata to control how the performance is evaluated
+ * @param options.resultUnit To view the result in milliseconds (or) seconds
+ * @param options.resultColor Result color to be viewed in browser console
+ * @param options.requiredNoOfExecutions Controls the number of executions of your actual method
+ * @param options.enableTrace  To view internal trace
+ */
 export function EvaluatePerformance(options?: Partial<IPerformanceOptions>) {
   return (
     target: Object,
