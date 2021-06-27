@@ -21,7 +21,7 @@ export function EvaluatePerformance(options?: Partial<IPerformanceOptions>) {
   ) => {
     const resultColor = options?.resultColor || 'yellow';
     const noOfExecutions = options?.requiredNoOfExecutions  || 20;
-    const style = `background: black; color: ${resultColor}; font-weight: bold`;
+    const style = `background: black; color: ${resultColor};font-size: 14px`;
     const isTraceEnabled = options?.enableTrace;
     const actualMethod: Function = propertyDescriptor.value;
     const metrics = [];
@@ -48,9 +48,9 @@ export function EvaluatePerformance(options?: Partial<IPerformanceOptions>) {
 
     if (options && options.resultUnit === 'seconds') {
         const seconds = (meanPerformanceInMs / 1000).toFixed(4);
-        console.log(`%c ${property} => ${seconds} seconds`,style);
+        console.log(`%c Avg execution time (${noOfExecutions} executions) for ${property} => ${seconds} seconds`,style);
     } else {
-        console.log(`%c ${property} => ${meanPerformanceInMs} milliseconds`, style);
+        console.log(`%c Avg execution time (${noOfExecutions} executions) for ${property} => ${meanPerformanceInMs} milliseconds`, style);
       }
   };
 }
