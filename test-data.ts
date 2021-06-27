@@ -4,7 +4,7 @@ const facebookEmployees = [];
 const googleEmployees = [];
 const microSoftEmployees = [];
 
-Array.from({ length: 500 }, (_, i) => {
+for (let i = 1; i <= 500; i++) {
   facebookEmployees.push({
     name: faker.name.findName(),
     company: 'facebeook',
@@ -20,7 +20,7 @@ Array.from({ length: 500 }, (_, i) => {
     company: 'microsoft',
     id: faker.datatype.number()
   });
-});
+}
 
 export const testData = [
   ...facebookEmployees,
