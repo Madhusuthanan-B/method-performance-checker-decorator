@@ -8,7 +8,8 @@ class PerformanceTest {
   constructor() {}
 
   @EvaluatePerformance({
-    resultColor: 'yellow'
+    resultColor: 'yellow',
+    requiredNoOfExecutions: 100
   })
   groupWithPlainJavaScript() {
     const result = testData.reduce((group, current) => {
@@ -23,7 +24,8 @@ class PerformanceTest {
   }
 
   @EvaluatePerformance({
-    resultColor: 'red'
+    resultColor: 'red',
+    requiredNoOfExecutions: 100
   })
   groupWithUnderscore() {
     const result = _.groupBy(testData, 'company');
