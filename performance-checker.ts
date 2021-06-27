@@ -10,23 +10,20 @@ export function EvaluatePerformance(options?: Partial<IPerformanceOptions>) {
     property: string,
     propertyDescriptor: PropertyDescriptor
   ) => {
-    console.log(
-      `%c Evaluating ${property} `,
-      'background: #222; color: #bada55'
-    );
+    const resultColor = options?.resultColor || 'yellow';
+    console.log('Started Evaluation');
     const actualMethod: Function = propertyDescriptor.value;
     (function(...args) {
       const tStart = performance.now();
       actualMethod.apply(this, args);
       const tEnd = performance.now();
       const ms = tEnd - tStart;
-      const resultColor = options?.resultColor || 'yellow';
       const style = `background: black; color: ${resultColor}; font-weight: bold`;
       if (options && options.resultUnit === 'seconds') {
         const seconds = (ms / 1000).toFixed(4);
-        console.log(`%c ${seconds} seconds`,style);
+        console.log(`%c ${property} => ${seconds} seconds`,style);
       } else {
-        console.log(`%c ${ms} milliseconds`, style);
+        console.log(`%c ${property} => ${ms} milliseconds`, style);
       }
     })();
   };
